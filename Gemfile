@@ -23,6 +23,8 @@ gem 'bootsnap', '>= 1.1.0', require: false
 
 gem 'dotenv-rails'
 
+gem 'bcrypt'
+
 # gem 'redis', '~> 4.0'
 
 # gem 'bcrypt', '~> 3.1.7'
