@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_06_05_015109) do
+ActiveRecord::Schema.define(version: 2019_06_07_152534) do
 
   create_table "calenders", id: :integer, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.integer "user_id"
@@ -100,6 +100,7 @@ ActiveRecord::Schema.define(version: 2019_06_05_015109) do
     t.datetime "updated_at", null: false
     t.string "email"
     t.string "password_digest"
+    t.string "remember_digest"
     t.index ["hash_id"], name: "index_users_on_hash_id", unique: true
   end
 

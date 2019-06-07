@@ -1,9 +1,17 @@
-<div class="sing-up-form">
+<div class = "sign-up-form">
   <%= form_for @user do |f| %>
-    <%= f.text_field :name %>
-    <%= f.text_field :email %>
-    <%= f.text_field :password %>
-    <%= f.text_field :password_confirmation %>
-    <%= f.submit %>
+    <%= f.label :名前, class: 'sign-up-label' %>
+    <%= f.text_field :name, class: 'sign-up-input' %>
+
+    <%= f.label :メールアドレス, class: 'sign-up-label' %>
+    <%= f.text_field :email, class: 'sign-up-input' %>
+
+    <%= f.label :パスワード, class: 'sign-up-label' %>
+    <%= f.text_field :password, class: 'sign-up-input' %>
+
+    <%= f.label :パスワード確認, class: 'sign-up-label' %>
+    <%= f.text_field :password_confirmation, class: 'sign-up-input' %>
+
+    <%= f.submit :"登録", class: 'sign-up-submit btn btn-primary' %>
   <% end %>
 </div>

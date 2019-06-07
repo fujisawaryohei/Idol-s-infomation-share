@@ -1,0 +1,11 @@
+<div class="user-page">
+  <% if @current_user.image_file %>
+    <%= image_tag(@current_user.image_file, class:'user-icon')%>
+  <% else %>
+    <img class="user-icon" src="http://www.teppan.co/images/success/default.png">
+  <% end %>
+  <div class="introduction">
+    <p><%= @current_user.name %></p>
+    <%= link_to 'ログアウトする', '/logout', {method: :delete, class:"btn btn-danger"} %>
+  </div>
+</div>
