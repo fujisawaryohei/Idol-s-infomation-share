@@ -1,0 +1,11 @@
+<div class="container">
+  <div class="side">
+  </div>
+  <div class="home">
+    <%= @post.each do |post| %>
+      <%= image_tag("/posts/#{@post.hash_id}")%>
+      <%= @post.conten %>
+      <hr color="red" height="100">
+    <% end %>
+  </div>
+</div>

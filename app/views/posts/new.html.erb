@@ -1,0 +1,12 @@
+<div class="post-form">
+  <%= form_for(@post) do |f| %>
+    <%= f.text_area :content, class:"md-textarea form-control",size:"10x5", maxLength:"255"%>
+    <label>
+      <span class="btn btn-danger">
+        画像を選択する
+        <%= f.file_field :image_file, style:"display:none;"%>
+      </span>
+    </label>
+    <%= f.submit :"投稿する", class:"btn btn-success"%>
+  <% end %>
+</div>

@@ -26,7 +26,6 @@
   color: white;
 }
 
-
 .header-right {
   display: flex;
   align-items: center;
@@ -37,10 +36,15 @@
   height: 60px;
   border-radius: 90%;
   margin-top: 10px;
-  margin-right: 20px;
+  margin-right:20px;
 }
 
 .header-right input {
-  margin-top: 20px;
-  margin-right: 20px;
+  margin-top: 10px;
+  margin-right:20px;
+}
+
+.header-right .btn {
+  margin-right:20px;
+  width:150px;
 }

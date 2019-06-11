@@ -1,0 +1,37 @@
+// Place all the styles related to the posts controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.container {
+  display: flex;
+  align-items: stretch;
+}
+
+.home {
+  background-color:white;
+  color:black;
+  margin-top:50px;
+  margin-left:50px;
+}
+
+.side {
+  background-color:#e8ffeb;
+  margin-top:50px;
+}
+
+hr {
+  color:#83bfa7;
+  height:2px;
+  size:10px;
+}
+
+.post-form {
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  margin-top:100px;
+}
+
+.post-form .btn {
+  margin-top:20px;
+}
