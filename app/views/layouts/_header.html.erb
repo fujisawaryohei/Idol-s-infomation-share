@@ -5,10 +5,12 @@
       <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="ユーザー検索">
       <% if @current_user.image_file %>
         <%= link_to user_path(@current_user.hash_id) do %>
-          <%= image_tag(@current_user.image_file) %>
+          <%= image_tag("users/#{@user.hash_id}.jpg") %>
         <% end %>
       <% else %>
-        <img class="user-icon" src="http://www.teppan.co/images/success/default.png">
+        <%= link_to("/users/#{@current_user.hash_id}") do %>
+          <img class="user-icon" src="http://www.teppan.co/images/success/default.png">
+        <% end %>
       <% end %>
     </div>
   <% else %>

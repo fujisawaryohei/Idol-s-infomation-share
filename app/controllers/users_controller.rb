@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
-
+  before_action :limit_user_new, only: :new
   def create
-    user = User.new(user_params)
+    user = User.new(login_params)
     user.hash_id = SecureRandom.uuid.upcase
     if user.save
       log_in user
@@ -15,19 +15,44 @@ class UsersController < ApplicationController
   end
 
   def show
-    @current_user = User.find_by(hash_id: params[:hash_id])
+    @user = User.find_by(hash_id: params[:hash_id])
   end
 
   def new
     @user = User.new
   end
 
-  def destroy
+  def edit
+    @user = User.find_by(hash_id: params[:hash_id])
+  end
+
+  def update
+    @user = User.find_by(hash_id: params[:hash_id])
+    File.binwrite("app/assets/images/users/#{@user.hash_id}.jpg", edit_params[:image_file].read)
+    edit_params[:image_file].original_filename = "#{@user.hash_id}.jpg"
+    binding.pry
+    if @user.update_attributes(image_file: edit_params[:image_file].original_filename, name: edit_params[:name], profile: edit_params[:profile])
+      flash.now[:sucess] = "編集が完了しました"
+      render 'users/show'
+    else
+      flash[:notice] = "正しく入力してください"
+    end
   end
 
   private
 
-  def user_params
+  def login_params
     params.require(:user).permit(:name, :email, :password, :password_confirmation)
+  end
+
+  def edit_params
+    params.require(:user).permit(:image_file, :name, :profile)
+  end
+
+  def limit_user_new
+    if !current_user.nil?
+      flash[:notice] = 'このページへのアクセスは制限されています'
+      redirect_to "/users/#{current_user.hash_id}"
+    end
   end
 end

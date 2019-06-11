@@ -1,0 +1,26 @@
+<div class="edit-user-page">
+  <%= form_for @user, url:"/users/#{@user.hash_id}/edit" do |f| %>
+    <% if @user.image_file %>
+      <%= image_tag("users/#{@user.hash_id}.jpg", class:'user-icon')%>
+    <% else %>
+      <img class="user-icon" src="http://www.teppan.co/images/success/default.png">
+    <% end %>
+    <label>
+      <span class="file-button btn btn-primary">
+        ファイルを選択
+        <%= f.file_field :image_file, style:"display:none;"%>
+      </span>
+    </label>
+
+    <div class="edit-introduction">
+      <%= f.label :名前 %>
+      <p><%= f.text_field :name, value: @user.name , class: "edit-name form-control" %></p>
+      <div class="user-profile">
+        <%= f.label :プロフィール %>
+        <%= f.text_area :profile, value: @user.profile, class: "edit-profile form-control", size:"10x5", maxLength:"255"%>
+      </div>
+      <%= f.submit class: "btn btn-success", style:"margin-top:20px;"%>
+      <%= link_to('ログアウトする', "/logout", {method: :delete, class:"logout-btn btn btn-danger"})%>
+    </div>
+  <% end %>
+</div>

@@ -4,7 +4,6 @@ module SessionsHelper
   end
 
   def forget(user)
-    binding.pry
     user.forget
     cookies.delete(:user_id)
     cookies.delete(:remember_token)
@@ -29,7 +28,7 @@ module SessionsHelper
   end
 
   def logged_in?
-    !@current_user.nil?
+    !current_user.nil?
   end
 
   def remember(user)
