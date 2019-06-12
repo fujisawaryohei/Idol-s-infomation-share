@@ -6,7 +6,8 @@
       <% end %>
     <% end %>
   </div>
-  <%= form_for(@post) do |f| %>
+  <%= form_for(@post, remote:true) do |f| %>
+    <div id="temp-img" style="margin:20px;"></div>
     <%= f.text_area :content, class:"md-textarea form-control",size:"10x5", maxLength:"255"%>
     <label>
       <span class="btn btn-danger">
@@ -17,3 +18,16 @@
     <%= f.submit :"投稿する", class:"btn btn-success"%>
   <% end %>
 </div>
+
+<script>
+  var obj1 = document.getElementById("post_image_file");
+  obj1.addEventListener("change", function(evt){
+    var file = evt.target.files;
+    var reader = new FileReader();
+    reader.readAsDataURL(file[0]);
+    reader.onload = function(){
+      var dataUrl = reader.result;
+      document.getElementById('temp-img').innerHTML = "<img src='" + dataUrl + "'>";
+    }
+  });
+</script>

@@ -10,13 +10,14 @@
           <% end %>
           <span><%= post.user.name %></span>
         <% end %>
-          <hr color="red">
-          <p><%= post.content%></p>
       </div>
-      <% if post.image_file %>
-        <%= image_tag(post.image_file.url, class: "post-image", size: "500x250")%>
-      <% end %>
-      <hr color="red">
+      <div class="post-content">
+        <p><%= post.content%></p>
+        <% if post.image_file.url %>
+          <%= image_tag(post.image_file.url, class: "post-image", size: "500x250") %>
+        <% end %>
+        <hr color="red">
+      </div>
     <% end %>
   </div>
 </div>

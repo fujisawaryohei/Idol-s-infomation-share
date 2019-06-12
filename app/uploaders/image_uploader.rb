@@ -42,10 +42,13 @@ class ImageUploader < CarrierWave::Uploader::Base
   # Override the filename of the uploaded files:
   # Avoid using model.id or version_name here, see uploader/store.rb for details.
   def filename
-    extension_whitelist.each do |type|
-      if content_type.include?(type)
-        return "#{model.hash_id}.#{type}"
+    if content_type
+      extension_whitelist.each do |type|
+        if content_type.include?(type)
+          return "#{model.hash_id}.#{type}"
+        end
       end
     end
   end
+
 end

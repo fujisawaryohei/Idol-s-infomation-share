@@ -15,7 +15,7 @@
 }
 
 .side {
-  background-color:#e8ffeb;
+  background-color:#88CE6E;
   margin-top:50px;
   width:300px;
 }
@@ -37,12 +37,23 @@ hr {
   margin-top:20px;
 }
 
+#temp-img img {
+  width:200px;
+  height:100px;
+  margin-bottom:20px;
+}
+
 .posts-section .post-image {
-  margin-buttom:20px;
+  margin-bottom:20px;
+  border-radius:10%;
 }
 
 .post-user-image {
   border-radius:50%;
   width:60px;
   height:60px;
+}
+
+.post-content {
+  margin-top:20px;
 }
