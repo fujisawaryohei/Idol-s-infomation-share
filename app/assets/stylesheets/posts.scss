@@ -4,10 +4,10 @@
 
 .container {
   display: flex;
-  align-items: stretch;
 }
 
-.home {
+.posts-section {
+  flex:1;
   background-color:white;
   color:black;
   margin-top:50px;
@@ -17,6 +17,7 @@
 .side {
   background-color:#e8ffeb;
   margin-top:50px;
+  width:300px;
 }
 
 hr {
@@ -34,4 +35,14 @@ hr {
 
 .post-form .btn {
   margin-top:20px;
+}
+
+.posts-section .post-image {
+  margin-buttom:20px;
+}
+
+.post-user-image {
+  border-radius:50%;
+  width:60px;
+  height:60px;
 }

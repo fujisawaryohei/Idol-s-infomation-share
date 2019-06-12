@@ -25,6 +25,10 @@ gem 'dotenv-rails'
 
 gem 'bcrypt', '~> 3.1.7'
 
+gem 'jquery-rails'
+
+gem 'carrierwave'
+
 # gem 'redis', '~> 4.0'
 
 # gem 'bcrypt', '~> 3.1.7'

@@ -1,11 +1,22 @@
 <div class="container">
   <div class="side">
   </div>
-  <div class="home">
-    <%= @post.each do |post| %>
-      <%= image_tag("/posts/#{@post.hash_id}")%>
-      <%= @post.conten %>
-      <hr color="red" height="100">
+  <div class="posts-section">
+    <% @post.each do |post| %>
+      <div class="post-user-info">
+        <%= link_to "/users/#{post.user.hash_id}", {style:"color:black; text-decoration:none;"} do %>
+          <% if post.user.image_file %>
+            <%= image_tag("users/#{post.user.hash_id}", class:"post-user-image")%>
+          <% end %>
+          <span><%= post.user.name %></span>
+        <% end %>
+          <hr color="red">
+          <p><%= post.content%></p>
+      </div>
+      <% if post.image_file %>
+        <%= image_tag(post.image_file.url, class: "post-image", size: "500x250")%>
+      <% end %>
+      <hr color="red">
     <% end %>
   </div>
 </div>

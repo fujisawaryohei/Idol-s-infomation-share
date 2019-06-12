@@ -1,4 +1,11 @@
 <div class="post-form">
+  <div class="post-error-messages">
+    <% if @post.errors.any? %>
+      <% @post.errors.full_messages do |msg| %>
+        <p><%= msg %></p>
+      <% end %>
+    <% end %>
+  </div>
   <%= form_for(@post) do |f| %>
     <%= f.text_area :content, class:"md-textarea form-control",size:"10x5", maxLength:"255"%>
     <label>

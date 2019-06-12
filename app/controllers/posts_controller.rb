@@ -9,13 +9,15 @@ class PostsController < ApplicationController
   end
 
   def create
-    post = Post.new(post_params)
-    if post.save
-      flash[:sucess] = "投稿しました"
+    current_user_id = current_user.id
+    post_hash_id = SecureRandom.uuid.upcase
+    @post = Post.new(content:post_params[:content], image_file:post_params[:image_file], user_id:current_user_id, hash_id: post_hash_id)
+    if @post.valid?
+      @post.save
+      flash[:sucess] = "投稿が完了しました。"
       redirect_to "/posts"
     else
-      flash[:notice] = "入力されていない箇所があります。"
-      redirect_to "/posts/new"
+      redirect_to "posts/new"
     end
   end
 
