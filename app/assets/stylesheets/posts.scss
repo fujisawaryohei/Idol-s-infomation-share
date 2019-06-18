@@ -7,12 +7,17 @@
   margin:0 auto;
 }
 
+.left-side {
+  border-radius:3%;
+}
+
 .posts-section {
   flex:1;
   background-color:white;
   color:black;
   margin-top:50px;
   margin-left:50px;
+  border-radius:3%;
 }
 
 .left-side {
@@ -52,6 +57,8 @@ hr {
 
 .post-user-info {
   display:flex;
+  margin-top:10px;
+  margin-left:10px;
 }
 
 .post-user-image {
@@ -68,7 +75,13 @@ hr {
   margin-top:20px;
 }
 
+.post-content {
+  margin-left:10px;
+}
+
 .posts-section .post-image {
+  display:block;
+  margin:0 auto;
   margin-bottom:20px;
   border-radius:10%;
 }
