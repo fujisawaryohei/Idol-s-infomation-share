@@ -28,7 +28,7 @@ class User < ApplicationRecord
   end
 
   def authenticated?(remember_token)
-    Bcrypt::Password.new(remember_digest).isPassword?(remember_token)
+    BCrypt::Password.new(remember_digest).is_password?(remember_token)
   end
 
   def forget

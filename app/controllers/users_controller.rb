@@ -29,9 +29,14 @@ class UsersController < ApplicationController
 
   def update
     @user = User.find_by(hash_id: params[:hash_id])
-    File.binwrite("app/assets/images/users/#{@user.hash_id}.jpg", edit_params[:image_file].read)
-    edit_params[:image_file].original_filename = "#{@user.hash_id}.jpg"
-    if @user.update_attributes(image_file: edit_params[:image_file].original_filename, name: edit_params[:name], profile: edit_params[:profile])
+    if edit_params[:image_file]
+      File.binwrite("app/assets/images/users/#{@user.hash_id}.jpg", edit_params[:image_file].read)
+      edit_params[:image_file].original_filename = "#{@user.hash_id}.jpg"
+      @user.update_attributes(image_file: edit_params[:image_file].original_filename, name: edit_params[:name], profile: edit_params[:profile])
+      flash.now[:sucess] = "編集が完了しました"
+      render 'users/show'
+    elsif edit_params[:image_file].nil?
+      @user.update_attributes(name: edit_params[:name], profile: edit_params[:profile])
       flash.now[:sucess] = "編集が完了しました"
       render 'users/show'
     else

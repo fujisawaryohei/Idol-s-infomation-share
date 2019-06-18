@@ -1,5 +1,5 @@
 <div class="container">
-  <div class="side">
+  <div class="left-side">
   </div>
   <div class="posts-section">
     <% @post.each do |post| %>
@@ -9,15 +9,21 @@
             <%= image_tag("users/#{post.user.hash_id}", class:"post-user-image")%>
           <% end %>
           <span><%= post.user.name %></span>
+          <span class="posted-month"><%= post.created_at.strftime('%Y/%m/%d') %></span>
+          <span class="posted-time"><%= post.created_at.strftime('%H時%-M分%-S秒')%></span>
         <% end %>
       </div>
       <div class="post-content">
-        <p><%= post.content%></p>
-        <% if post.image_file.url %>
-          <%= image_tag(post.image_file.url, class: "post-image", size: "500x250") %>
+        <%= link_to "/posts/#{post.hash_id}", {style:"color:black; text-decoration:none;"} do %>
+          <p><%= post.content %></p>
+          <% if post.image_file.url %>
+            <%= image_tag(post.image_file.url, class: "post-image") %>
+          <% end %>
         <% end %>
         <hr color="red">
       </div>
     <% end %>
+  </div>
+  <div class="footer">
   </div>
 </div>

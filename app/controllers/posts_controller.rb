@@ -1,7 +1,7 @@
 class PostsController < ApplicationController
 
   def index
-    @post = Post.all
+    @post = Post.order(created_at: :desc).all
   end
 
   def new
@@ -22,6 +22,7 @@ class PostsController < ApplicationController
   end
 
   def show
+    @post = Post.find_by(hash_id: params[:hash_id])
   end
 
   def edit
@@ -30,7 +31,15 @@ class PostsController < ApplicationController
   def update
   end
 
-  def delete
+  def destroy
+    post = Post.find_by(hash_id: params[:hash_id])
+    if post
+      post.delete
+      redirect_to "/posts"
+    else
+      flash[:notice] = "削除中に不具合が起きたため削除できませんでした。"
+      render "/posts/#{post.hash_id}"
+    end
   end
 
   private

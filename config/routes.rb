@@ -11,5 +11,5 @@ Rails.application.routes.draw do
   resources :posts, only: [:index, :new, :create]
   get '/posts/:hash_id', to: 'posts#show'
   patch '/posts/:hash_id', to: 'posts#update'
-  delete '/posts/:hash_id', to: 'posts#delete'
+  delete '/posts/:hash_id', to: 'posts#destroy'
 end

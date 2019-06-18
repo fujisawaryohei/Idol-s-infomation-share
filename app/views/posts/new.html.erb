@@ -7,7 +7,9 @@
     <% end %>
   </div>
   <%= form_for(@post, remote:true) do |f| %>
-    <div id="temp-img" style="margin:20px;"></div>
+    <div id="upload-movement">
+      <div id="temp-elem" style="margin:5px;"></div>
+    </div>
     <%= f.text_area :content, class:"md-textarea form-control",size:"10x5", maxLength:"255"%>
     <label>
       <span class="btn btn-danger">
@@ -20,14 +22,22 @@
 </div>
 
 <script>
-  var obj1 = document.getElementById("post_image_file");
-  obj1.addEventListener("change", function(evt){
+  var uploadImg = document.getElementById("post_image_file");
+  var backspace = document.getElementById("backspace");
+  uploadImg.addEventListener("change", function(evt){
     var file = evt.target.files;
     var reader = new FileReader();
     reader.readAsDataURL(file[0]);
     reader.onload = function(){
       var dataUrl = reader.result;
-      document.getElementById('temp-img').innerHTML = "<img src='" + dataUrl + "'>";
-    }
+      document.getElementById('temp-elem').innerHTML =
+      "<p>アップロードされる画像</p>" + "<i class='fas fa-times-circle' style=float:right; id=deletebtn></i>" +"<img src='" + dataUrl + "' id=uploaded-img>";
+      var deletebtn = document.getElementById("deletebtn");
+      var parent = document.getElementById("upload-movement");
+      var child = document.getElementById("temp-img");
+      deletebtn.onclick = function(){
+        parent.removeChild(child);
+      };
+    };
   });
 </script>

@@ -1,0 +1,20 @@
+<div class="post-show">
+  <div class="post-show-user-info">
+    <% if @post.user.image_file %>
+      <%= image_tag("users/#{@post.user.hash_id}",class:"post-user-image")%>
+    <% else %>
+      <img class="user-icon" src="http://www.teppan.co/images/success/default.png">
+    <% end %>
+    <p><%= @post.user.name %></p>
+  </div>
+  <div class="post-show-post-image">
+    <%= image_tag(@post.image_file.url, class: "post-show-image") %>
+  </div>
+  <div class="post-show-post-content">
+    <p><%= @post.content %></p>
+    <% if @post.user == current_user %>
+      <%= link_to "削除する", "/posts/#{@post.hash_id}" , method: :delete, class: "post-delete btn btn-danger", style: "display:block; width:200px; margin:0 auto; margin-top:100px;" %>
+    <% end %>
+  </div>
+</div>
+
