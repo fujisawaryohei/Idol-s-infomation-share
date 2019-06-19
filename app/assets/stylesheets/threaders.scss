@@ -1,0 +1,51 @@
+// Place all the styles related to the threaders controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.left-side {
+  display:flex;
+  height: auto;
+}
+
+.left-side .form-control {
+  width:300px;
+  height:60px;
+  display:block;
+  margin:0 auto;
+}
+
+.threads-selection {
+  flex:1;
+  background-color:white;
+  color:black;
+  margin-top:50px;
+  margin-left:50px;
+  border-radius:3%;
+}
+
+.threads-form {
+  margin-top:100px;
+}
+
+.threads-form .form-control {
+  display:block;
+  margin:0 auto;
+  width:500px;
+  height:40px;
+}
+
+.threads-form p {
+  text-align:center;
+}
+
+.threads-form .btn {
+  display:block;
+  margin:0 auto;
+  margin-top:50px;
+}
+
+.thread-user-icon {
+  border-radius:50%;
+  width:60px;
+  height:60px;
+}

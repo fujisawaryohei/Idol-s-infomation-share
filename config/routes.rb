@@ -12,4 +12,6 @@ Rails.application.routes.draw do
   get '/posts/:hash_id', to: 'posts#show'
   patch '/posts/:hash_id', to: 'posts#update'
   delete '/posts/:hash_id', to: 'posts#destroy'
+
+  resources :threaders, only: [:index, :new, :create, :destroy]
 end

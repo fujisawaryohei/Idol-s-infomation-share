@@ -9,26 +9,17 @@ class PostsController < ApplicationController
   end
 
   def create
-    current_user_id = current_user.id
-    post_hash_id = SecureRandom.uuid.upcase
-    @post = Post.new(content:post_params[:content], image_file:post_params[:image_file], user_id:current_user_id, hash_id: post_hash_id)
-    if  @post.save
+    @post = Post.new(content: post_params[:content], image_file: post_params[:image_file], user_id: current_user.id, hash_id: ramdom_token)
+    if @post.save
       flash[:success] = "投稿が完了しました。"
       redirect_to "/posts"
     else
-      flash[:notice] = "投稿が完了しませんでした。"
-      redirect_to "/posts/new"
+      render "posts/new"
     end
   end
 
   def show
     @post = Post.find_by(hash_id: params[:hash_id])
-  end
-
-  def edit
-  end
-
-  def update
   end
 
   def destroy
@@ -38,7 +29,7 @@ class PostsController < ApplicationController
       redirect_to "/posts"
     else
       flash[:notice] = "削除中に不具合が起きたため削除できませんでした。"
-      render "/posts/#{post.hash_id}"
+      redirect_to "/posts/#{post.hash_id}"
     end
   end
 

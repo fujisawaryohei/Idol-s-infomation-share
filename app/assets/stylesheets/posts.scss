@@ -61,6 +61,24 @@ hr {
   margin-left:10px;
 }
 
+.post-user-info span {
+  font-weight:bold;
+}
+
+.post-user-info .post-user-name {
+  font-size:20px;
+  margin-left:10px;
+}
+
+.posted-month {
+  color:#c1c3c3;
+  margin-left:300px;
+}
+
+.posted-time {
+  color:#c1c3c3;
+}
+
 .post-user-image {
   border-radius:50%;
   width:60px;
@@ -103,6 +121,7 @@ hr {
 .post-show-user-info p {
   font-family:"Ludica Sans Unicode";
   font-size:25px;
+  font-weight:bold;
   margin-left:60px;
   margin-top:10px;
   vertical-align:middle;

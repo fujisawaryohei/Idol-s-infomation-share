@@ -1,0 +1,8 @@
+<div class="threads-form">
+  <%= form_for(@threader) do |f| %>
+    <%= render 'layouts/error_messages', model: f.object %>
+    <p>タイトルを入力してください</p>
+    <%= f.text_field :title, class: "form-control", placeholder:"タイトル"%>
+    <%= f.submit :スレッドを作成する, class: "btn btn-primary"%>
+  <% end %>
+</div>

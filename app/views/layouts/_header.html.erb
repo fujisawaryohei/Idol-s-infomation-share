@@ -3,6 +3,12 @@
     <h2>idol share</h2>
   <% end %>
   <% if logged_in? %>
+    <div class="header-left">
+      <ul>
+        <li><%= link_to 'スレッド', '/threaders' %></li>
+        <li><%= link_to 'タイムライン', '/posts' %></li>
+      </ul>
+    </div>
     <div class="header-right">
       <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="ユーザー検索">
       <% if @current_user.image_file %>
