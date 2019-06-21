@@ -14,4 +14,8 @@ Rails.application.routes.draw do
   delete '/posts/:hash_id', to: 'posts#destroy'
 
   resources :threaders, only: [:index, :new, :create, :destroy]
+  get '/threaders/:hash_id', to: 'threaders#show'
+
+  post '/threaders/:id/threadcomment', to: 'thread_comment#create'
+  delete '/threaders/:id/threadcomment', to: 'thread_comment#destroy'
 end

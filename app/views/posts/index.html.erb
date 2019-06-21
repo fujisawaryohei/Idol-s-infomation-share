@@ -2,7 +2,7 @@
   <%= render 'threaders/left-side' %>
   <div class="posts-section">
     <% @post.each do |post| %>
-      <%= render 'users/user_info', model: post%>
+      <%= render 'users/user_info', model: post %>
       <div class="post-content">
         <%= link_to "/posts/#{post.hash_id}", {style:"color:black; text-decoration:none;"} do %>
           <p><%= post.content %></p>

@@ -17,6 +17,10 @@ class ThreadersController < ApplicationController
     end
   end
 
+  def show
+    @thread = Threader.find_by(hash_id:params[:hash_id])
+  end
+
   def destroy
   end
 

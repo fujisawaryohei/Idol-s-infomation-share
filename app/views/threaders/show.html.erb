@@ -1,0 +1,12 @@
+<div class="container">
+  <%= render 'threaders/left-side' %>
+  <div class="threads-selection">
+    <h2><%= @thread.title %></h2>
+    <% @thread.threadComments.each do |comment| %>
+      <%= render 'users/user_info', model: comment %>
+      <p><%= comment %></p>
+      <hr color="black">
+    <% end %>
+    <%= render 'threadcomments/comment', id: @thread.hash_id %>
+  </div>
+</div>

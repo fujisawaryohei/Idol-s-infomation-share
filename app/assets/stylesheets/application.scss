@@ -13,13 +13,31 @@
  *= require_tree .
  *= require_self
  */
+
+html,
+body,
+div.background {
+  height: 100%; /* 「div.background」に対してはmin-heightに対応していないブラウザ用 */
+  background-color:#d4f1b9;
+}
+
+div.background {
+  min-height: 100%; /* 最小の高さ */
+  width: 300px;
+  background: #EFEFEF;
+}
+
+body > div.background {
+  height: auto; /* 要素を超えた分の背景が伸びないブラウザ用 */
+}
+
 p {
   font-family:"ＭＳ 明朝",serif;;
 }
 
 .main {
   background-color:#d4f1b9;
-  height:1000px;
+  height:100%;
 }
 
 .success {
@@ -43,4 +61,20 @@ p {
 
 .error-messages li {
   list-style:none;
+}
+
+.comment {
+  text-align: center;
+  position: absolute;
+  bottom: 0;
+  margin-left:20px;
+  margin-bottom:10px;
+  position:fixed;
+}
+
+#threadComment {
+  width: 500px;
+  height:50px;
+  border: solid 2px #d1d1d1;
+  border-radius:2%;
 }

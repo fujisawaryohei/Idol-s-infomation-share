@@ -1,0 +1,6 @@
+<div class="comment">
+  <%= form_tag("/posts/#{id}", method: :post) do %>
+    <%= text_field_tag :threadComment %>
+    <%= submit_tag("コメントする", class:"btn btn-primary") %>
+  <% end %>
+</div>
