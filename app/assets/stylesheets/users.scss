@@ -1,0 +1,65 @@
+// Place all the styles related to the users controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.sign-up-form {
+  display: flex;
+  justify-content: center;
+  margin-top:50px;
+}
+
+.sign-up-label {
+  display: block;
+}
+
+.sign-up-input {
+  display: block;
+}
+
+.sign-up-submit {
+  display: block;
+  margin-top: 20px;
+}
+
+.introduction {
+  text-align:center;
+}
+
+.user-icon {
+  display:block;
+  margin:auto;
+  border-radius: 60%;
+  width:350px;
+  height:350px;
+  margin-top:40px;
+}
+
+.introduction p {
+  text-align:center;
+  margin-top:10px;
+}
+
+.introduction a {
+  margin-top:70px;
+}
+
+.edit-user-page {
+  justify-content:center;
+  align-item:center;
+  display:flex;
+}
+
+.edit-introduction {
+  text-align:center;
+}
+
+.edit-introduction .edit-name {
+  text-align:center;
+}
+
+.edit-introduction .logout-btn {
+  display:flex;
+  margin-top:20px;
+  margin-buttom:100px;
+  justify-content:center;
+}

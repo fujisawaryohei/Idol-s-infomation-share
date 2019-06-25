@@ -1,0 +1,22 @@
+<header class="top-page-header">
+  <h2>idol share</h2>
+  <% if logged_in? %>
+    <div class="header-right">
+      <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="ユーザー検索">
+      <% if @current_user.image_file %>
+        <%= link_to user_path(@current_user.hash_id) do %>
+          <%= image_tag("users/#{@user.hash_id}.jpg") %>
+        <% end %>
+      <% else %>
+        <%= link_to("/users/#{@current_user.hash_id}") do %>
+          <img class="user-icon" src="http://www.teppan.co/images/success/default.png">
+        <% end %>
+      <% end %>
+    </div>
+  <% else %>
+    <ul>
+      <li><%= link_to "新規登録", "/users/new"%></li>
+      <li><%= link_to "ログイン", "/login"%></li>
+    </ul>
+  <% end %>
+</header>

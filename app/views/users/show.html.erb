@@ -1,0 +1,16 @@
+<div class="user-page">
+  <% if @user.image_file %>
+    <%= image_tag("users/#{@user.hash_id}.jpg", class:'user-icon')%>
+  <% else %>
+    <img class="user-icon" src="http://www.teppan.co/images/success/default.png">
+  <% end %>
+  <div class="introduction">
+    <p><%= @user.name %></p>
+    <div class="user-profile">
+      <%= @user.profile %>
+    </div>
+    <% if @user == current_user %>
+      <%= link_to 'User設定をする', "/users/#{@user.hash_id}/edit", class:"btn btn-info" %>
+    <% end %>
+  </div>
+</div>

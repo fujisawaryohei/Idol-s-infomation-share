@@ -1,0 +1,2 @@
+class ThreadComment < ApplicationRecord
+end

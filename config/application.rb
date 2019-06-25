@@ -29,5 +29,8 @@ module IdolShare
 
     # Don't generate system test files.
     config.generators.system_tests = nil
+    config.generators do |generator|
+      generator.orm :active_record, primary_key_type: :integer
+    end
   end
 end

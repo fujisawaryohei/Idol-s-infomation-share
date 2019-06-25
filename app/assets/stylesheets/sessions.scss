@@ -1,0 +1,22 @@
+// Place all the styles related to the sessions controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.sign-in-form {
+  display: flex;
+  justify-content: center;
+  margin-top:50px;
+}
+
+.sign-in-label {
+  display: block;
+}
+
+.sign-in-input {
+  display: block;
+}
+
+.sign-in-submit {
+  display: block;
+  margin-top: 20px;
+}

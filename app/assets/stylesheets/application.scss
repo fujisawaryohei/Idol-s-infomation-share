@@ -13,3 +13,17 @@
  *= require_tree .
  *= require_self
  */
+.success {
+  color:#4ee060;
+  text-align:center;
+  margin-top:10px;
+}
+.notice {
+  text-align:center;
+  color:#d51857;
+  margin-top:10px;
+}
+
+p {
+  font-family:"ＭＳ 明朝",serif;;
+}
