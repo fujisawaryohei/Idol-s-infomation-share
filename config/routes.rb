@@ -17,5 +17,5 @@ Rails.application.routes.draw do
   get '/threaders/:hash_id', to: 'threaders#show'
 
   post '/threaders/:id/threadcomment', to: 'threadcomments#create'
-  delete '/threaders/:id/threadcomment', to: 'threadcomments#destroy'
+  delete '/threaders/:id/threadcomment/:hash_id', to: 'threadcomments#destroy'
 end

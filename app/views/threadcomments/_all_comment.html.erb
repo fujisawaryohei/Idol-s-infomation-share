@@ -3,6 +3,9 @@
     <%= render 'users/user_info', model: threadcomment %>
     <div class="comment-content" style="height:50px;">
       <p style="margin-left:80px;"><%= threadcomment.comment %></p>
+      <% if !current_user.nil? %>
+        <span><%= link_to '削除する', "/threaders/#{threadcomment.threader.hash_id}/threadcomment/#{threadcomment.hash_id}", method: :delete %></span>
+      <% end %>
     </div>
   <% end %>
 </div>
