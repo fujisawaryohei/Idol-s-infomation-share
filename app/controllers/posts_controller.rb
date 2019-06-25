@@ -11,7 +11,8 @@ class PostsController < ApplicationController
   def create
     current_user_id = current_user.id
     post_hash_id = SecureRandom.uuid.upcase
-    @post = Post.new(content:post_params[:content], image_file:post_params[:image_file], user_id:current_user_id, hash_id: post_hash_id)
+    ## build method is called by model having has_many method
+    @post = current_user.posts.build(content:post_params[:content], image_file:post_params[:image_file],hash_id: post_hash_id)
     if  @post.save
       flash[:success] = "投稿が完了しました。"
       redirect_to "/posts"
