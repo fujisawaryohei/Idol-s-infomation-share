@@ -6,3 +6,17 @@
   width:500px;
   height:50px;
 }
+
+.comment-content {
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
+
+.comment-content p {
+  margin-left:80px;
+}
+
+.comment-content .btn {
+  margin-right:10px;
+}
