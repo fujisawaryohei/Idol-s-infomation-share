@@ -2,7 +2,7 @@
   <div class="left-side">
   </div>
   <div class="posts-section">
-    <% @post.each do |post| %>
+    <% @posts.each do |post| %>
       <div class="post-user-info">
         <%= link_to "/users/#{post.user.hash_id}", {style:"color:black; text-decoration:none;"} do %>
           <% if post.user.image_file %>

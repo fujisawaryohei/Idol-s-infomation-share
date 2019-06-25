@@ -1,5 +1,5 @@
 class Post < ApplicationRecord
-  belongs_to :user, required: true
+  belongs_to :user
   validates :content, presence: true, length: { maximum: 255 }
   validates :hash_id, presence: true
 
