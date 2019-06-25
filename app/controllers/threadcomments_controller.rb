@@ -8,15 +8,18 @@ class ThreadcommentsController < ApplicationController
   end
 
   def create
-    thread = Thread.find_by(hash_id: params[:hash_id])
-    @threadcomment = ThreadComment.new(comment: set_params[:comment], user_id: current_user.id,threader_id: thread.id, hash_id: ramdom_token)
+    @thread = Threader.find_by(hash_id: params[:id])
+    @threadcomment = ThreadComment.new(comment: params[:comment], user_id: current_user.id,threader_id: @thread.id, hash_id: ramdom_token)
+    if @threadcomment.save
+      respond_to do |format|
+        format.js
+      end
+    else
+      flash[:notice] = "コメントができませんでした"
+      redirect_to "/threaders/#{@thread.hash_id}"
+    end
   end
 
   def destory
-  end
-
-  private
-  def set_params
-    params.require(:threadcomment).permit(:comment)
   end
 end

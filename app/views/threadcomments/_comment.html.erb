@@ -1,6 +1,6 @@
 <div class="comment">
-  <%= form_tag("/threaders/#{id}/threadcomment", method: :post) do %>
-    <%= text_field_tag :threadComment %>
+  <%= form_tag("/threaders/#{id}/threadcomment", method: :post, remote: true) do %>
+    <%= text_field_tag :comment %>
     <%= submit_tag("コメントする", class:"btn btn-primary") %>
   <% end %>
 </div>
