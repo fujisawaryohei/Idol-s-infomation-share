@@ -7,6 +7,8 @@ class User < ApplicationRecord
 
   validates :email, presence: true, format: {with:VALID_EMAIL_REGEX}, uniqueness: { case_sensitive: false }
 
+  validates :hash_id, presence: true
+
   has_many :posts
 
   has_secure_password
@@ -26,7 +28,7 @@ class User < ApplicationRecord
   end
 
   def authenticated?(remember_token)
-    Bcrypt::Password.new(remember_digest).isPassword?(remember_token)
+    BCrypt::Password.new(remember_digest).is_password?(remember_token)
   end
 
   def forget

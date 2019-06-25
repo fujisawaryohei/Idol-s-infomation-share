@@ -1,0 +1,121 @@
+// Place all the styles related to the posts controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.container {
+  display: flex;
+  margin:0 auto;
+}
+
+.left-side {
+  border-radius:3%;
+}
+
+.posts-section {
+  flex:1;
+  background-color:white;
+  color:black;
+  margin-top:50px;
+  margin-left:50px;
+  border-radius:3%;
+}
+
+.left-side {
+  background-color:#9fd99a;
+  margin-top:50px;
+  width:400px;
+}
+
+hr {
+  color:#83bfa7;
+  height:2px;
+  size:10px;
+}
+
+.post-form {
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  margin-top:100px;
+}
+
+.post-form .btn {
+  margin-top:20px;
+}
+
+#temp-elem img {
+  display:block;
+  margin:auto;
+  width:150px;
+  height:150px;
+  margin-bottom:20px;
+}
+
+.uploading p {
+  text-align:center;
+}
+
+.post-user-info {
+  display:flex;
+  margin-top:10px;
+  margin-left:10px;
+}
+
+.post-user-image {
+  border-radius:50%;
+  width:60px;
+  height:60px;
+}
+
+.posted-time {
+  align-items:center;
+}
+
+.post-content {
+  margin-top:20px;
+}
+
+.post-content {
+  margin-left:10px;
+}
+
+.posts-section .post-image {
+  display:block;
+  margin:0 auto;
+  margin-bottom:20px;
+  border-radius:10%;
+}
+
+#img-delete-buttom {
+  float:right;
+}
+
+.post-show-user-info {
+  display:flex;
+  align-items:center;
+  margin:auto;
+  border-radius:5%;
+  width:300px;
+  height:70px;
+  margin-top:50px;
+}
+
+.post-show-user-info p {
+  font-family:"Ludica Sans Unicode";
+  font-size:25px;
+  margin-left:60px;
+  margin-top:10px;
+  vertical-align:middle;
+}
+
+.post-show-post-image .post-show-image {
+  border-radius:10%;
+  display:block;
+  margin:auto;
+  margin-top:10px;
+}
+
+.post-show-post-content p{
+  text-align:center;
+  margin-top:20px;
+}

@@ -1,0 +1,43 @@
+<div class="post-form">
+  <div class="post-error-messages">
+    <% if @post.errors.any? %>
+      <% @post.errors.full_messages do |msg| %>
+        <p><%= msg %></p>
+      <% end %>
+    <% end %>
+  </div>
+  <%= form_for(@post, remote:true) do |f| %>
+    <div id="upload-movement">
+      <div id="temp-elem" style="margin:5px;"></div>
+    </div>
+    <%= f.text_area :content, class:"md-textarea form-control",size:"10x5", maxLength:"255"%>
+    <label>
+      <span class="btn btn-danger">
+        画像を選択する
+        <%= f.file_field :image_file, style:"display:none;"%>
+      </span>
+    </label>
+    <%= f.submit :"投稿する", class:"btn btn-success"%>
+  <% end %>
+</div>
+
+<script>
+  var uploadImg = document.getElementById("post_image_file");
+  var backspace = document.getElementById("backspace");
+  uploadImg.addEventListener("change", function(evt){
+    var file = evt.target.files;
+    var reader = new FileReader();
+    reader.readAsDataURL(file[0]);
+    reader.onload = function(){
+      var dataUrl = reader.result;
+      document.getElementById('temp-elem').innerHTML =
+      "<p>アップロードされる画像</p>" + "<i class='fas fa-times-circle' style=float:right; id=deletebtn></i>" +"<img src='" + dataUrl + "' id=uploaded-img>";
+      var deletebtn = document.getElementById("deletebtn");
+      var parent = document.getElementById("upload-movement");
+      var child = document.getElementById("temp-img");
+      deletebtn.onclick = function(){
+        parent.removeChild(child);
+      };
+    };
+  });
+</script>

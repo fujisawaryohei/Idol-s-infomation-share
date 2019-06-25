@@ -23,7 +23,15 @@ gem 'bootsnap', '>= 1.1.0', require: false
 
 gem 'dotenv-rails'
 
-gem 'bcrypt', '~> 3.1.7'
+gem 'bcrypt'
+
+gem 'jquery-rails'
+
+gem 'carrierwave'
+
+gem 'mini_magick'
+
+gem 'rb-readline'
 
 # gem 'redis', '~> 4.0'
 

@@ -19,7 +19,7 @@
         <%= f.label :プロフィール %>
         <%= f.text_area :profile, value: @user.profile, class: "edit-profile form-control", size:"10x5", maxLength:"255"%>
       </div>
-      <%= f.submit class: "btn btn-success", style:"margin-top:20px;"%>
+      <%= f.submit :更新する, class: "btn btn-success", style:"margin-top:20px;"%>
       <%= link_to('ログアウトする', "/logout", {method: :delete, class:"logout-btn btn btn-danger"})%>
     </div>
   <% end %>

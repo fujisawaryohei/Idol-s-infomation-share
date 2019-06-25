@@ -15,12 +15,14 @@
   </head>
 
   <body>
-    <%= render 'layouts/header' %>
-    <% if flash[:success] %>
-      <p class="success"><%= flash[:success] %></p>
-    <% elsif flash[:notice] %>
-      <p class="notice"><%= flash[:notice] %></p>
-    <% end %>
+    <div class="main">
+      <%= render 'layouts/header' %>
+      <% if flash[:success] %>
+        <p class="success"><%= flash[:success] %></p>
+      <% elsif flash[:notice] %>
+        <p class="notice"><%= flash[:notice] %></p>
+      <% end %>
       <%= yield %>
+    </div>
   </body>
 </html>

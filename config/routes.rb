@@ -7,4 +7,9 @@ Rails.application.routes.draw do
   get '/login', to: 'sessions#new'
   post '/login', to: 'sessions#create'
   delete '/logout', to: 'sessions#destroy'
+
+  resources :posts, only: [:index, :new, :create]
+  get '/posts/:hash_id', to: 'posts#show'
+  patch '/posts/:hash_id', to: 'posts#update'
+  delete '/posts/:hash_id', to: 'posts#destroy'
 end
