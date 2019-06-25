@@ -5,7 +5,7 @@ class PostsController < ApplicationController
   end
 
   def new
-    @post = Post.new
+    @post = current_user.posts.build
   end
 
   def create
@@ -23,17 +23,11 @@ class PostsController < ApplicationController
   end
 
   def show
-    @post = Post.find_by(hash_id: params[:hash_id])
-  end
-
-  def edit
-  end
-
-  def update
+    @post = current_user.posts.find_by(hash_id: params[:hash_id])
   end
 
   def destroy
-    post = Post.find_by(hash_id: params[:hash_id])
+    post = current_user.posts.find_by(hash_id: params[:hash_id])
     if post
       post.delete
       redirect_to "/posts"
