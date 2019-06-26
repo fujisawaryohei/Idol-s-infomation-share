@@ -1,15 +1,18 @@
 class PostsController < ApplicationController
 
   def index
-    @post = current_user.posts
+    @posts = current_user.posts
   end
 
   def new
-    @post = Post.new
+    @post = current_user.posts.build
   end
 
   def create
-    @post = Post.new(content: post_params[:content], image_file: post_params[:image_file], user_id: current_user.id, hash_id: ramdom_token)
+    current_user_id = current_user.id
+    post_hash_id = SecureRandom.uuid.upcase
+    ## build method is called by model having has_many method
+    @post = current_user.posts.build(content: post_params[:content], image_file: post_params[:image_file],hash_id: post_hash_id)
     if @post.save
       flash[:success] = "投稿が完了しました。"
       redirect_to "/posts"
@@ -19,11 +22,11 @@ class PostsController < ApplicationController
   end
 
   def show
-    @post = Post.find_by(hash_id: params[:hash_id])
+    @post = current_user.posts.find_by(hash_id: params[:hash_id])
   end
 
   def destroy
-    post = Post.find_by(hash_id: params[:hash_id])
+    post = current_user.posts.find_by(hash_id: params[:hash_id])
     if post
       post.delete
       redirect_to "/posts"
