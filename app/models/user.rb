@@ -13,6 +13,10 @@ class User < ApplicationRecord
 
   has_many :threadComments
 
+  has_many :followings, foreign_key: "following_id", class_name: "Following", dependent: :destroy
+
+  has_many :followers, foreign_key: "follower_id", class_name: "Following", dependent: :destroy
+
   has_secure_password
 
   def User.new_token
