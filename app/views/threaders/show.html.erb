@@ -1,0 +1,8 @@
+<div class="container">
+  <%= render 'threaders/left-side' %>
+  <div class="threads-selection">
+    <h2><%= @thread.title %></h2>
+    <%= render partial: 'threadcomments/all_comment', locals: {thread: @thread }%>
+    <%= render 'threadcomments/comment', id: @thread.hash_id %>
+  </div>
+</div>

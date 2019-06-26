@@ -1,0 +1,10 @@
+<div class="left-side">
+  <%= search_form_for @thread_search, url: "/posts"  do |f|%>
+    <%= f.search_field :title, class: "form-control", placeholder: "スレッド検索", style: "margin-top:20px;"%>
+  <% end %>
+  <% if !current_user.nil? %>
+    <%= link_to "/threaders/new" do %>
+      <i class="fas fa-plus-circle" style="font-size:60px;margin-top:20px;margin-left:10px;"></i>
+    <% end %>
+  <% end %>
+</div>

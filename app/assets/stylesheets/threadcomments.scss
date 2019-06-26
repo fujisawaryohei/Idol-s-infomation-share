@@ -1,0 +1,22 @@
+// Place all the styles related to the threadcomments controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+#comment {
+  width:500px;
+  height:50px;
+}
+
+.comment-content {
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
+
+.comment-content p {
+  margin-left:80px;
+}
+
+.comment-content .btn {
+  margin-right:10px;
+}

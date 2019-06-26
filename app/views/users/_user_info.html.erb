@@ -1,0 +1,12 @@
+<div class="post-user-info">
+  <%= link_to "/users/#{model.user.hash_id}", {style:"color:black; text-decoration:none;"} do %>
+    <% if model.user.image_file %>
+      <%= image_tag("users/#{model.user.hash_id}", class:"post-user-image")%>
+    <% else %>
+      <img src="http://www.teppan.co/images/success/default.png" class="post-user-image">
+    <% end %>
+    <span class="post-user-name"><%= model.user.name %></span>
+    <span class="posted-month"><%= model.created_at.strftime('%Y/%m/%d') %></span>
+    <span class="posted-time"><%= model.created_at.strftime('%H時%-M分%-S秒')%></span>
+  <% end %>
+</div>

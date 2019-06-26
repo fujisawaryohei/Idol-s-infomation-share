@@ -1,5 +1,6 @@
 <div class="edit-user-page">
   <%= form_for @user, url:"/users/#{@user.hash_id}/edit" do |f| %>
+    <%= render 'layouts/error_messages', model: f.object %>
     <% if @user.image_file %>
       <%= image_tag("users/#{@user.hash_id}.jpg", class:'user-icon')%>
     <% else %>

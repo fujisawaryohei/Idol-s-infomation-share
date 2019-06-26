@@ -11,6 +11,8 @@ class User < ApplicationRecord
 
   has_many :posts
 
+  has_many :threadComments
+
   has_secure_password
 
   def User.new_token

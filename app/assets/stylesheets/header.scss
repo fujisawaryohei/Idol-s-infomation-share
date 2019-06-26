@@ -35,16 +35,32 @@
   width: 60px;
   height: 60px;
   border-radius: 90%;
-  margin-top: 10px;
-  margin-right:20px;
+  margin-top: 5px;
+  margin-right:15px;
+  margin-left:50px;
 }
 
 .header-right input {
-  margin-top: 10px;
-  margin-right:20px;
+  margin-top: 15px;
+  margin-right:50px;
 }
 
 .header-right .btn {
   margin-right:20px;
-  width:150px;
+  width:110px;
+}
+
+.header-left {
+  margin-right:30px;
+}
+
+.header-left  a {
+  color: white;
+  margin:0px 15px 0px 15px;
+  font-weight:bold;
+  font-size:17px;
+}
+
+.header-left a:hover {
+  color:white;
 }

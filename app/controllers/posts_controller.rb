@@ -12,13 +12,12 @@ class PostsController < ApplicationController
     current_user_id = current_user.id
     post_hash_id = SecureRandom.uuid.upcase
     ## build method is called by model having has_many method
-    @post = current_user.posts.build(content:post_params[:content], image_file:post_params[:image_file],hash_id: post_hash_id)
-    if  @post.save
+    @post = current_user.posts.build(content: post_params[:content], image_file: post_params[:image_file],hash_id: post_hash_id)
+    if @post.save
       flash[:success] = "投稿が完了しました。"
       redirect_to "/posts"
     else
-      flash[:notice] = "投稿が完了しませんでした。"
-      redirect_to "/posts/new"
+      render "posts/new"
     end
   end
 
@@ -33,7 +32,7 @@ class PostsController < ApplicationController
       redirect_to "/posts"
     else
       flash[:notice] = "削除中に不具合が起きたため削除できませんでした。"
-      render "/posts/#{post.hash_id}"
+      redirect_to "/posts/#{post.hash_id}"
     end
   end
 

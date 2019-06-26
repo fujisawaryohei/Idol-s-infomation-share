@@ -1,0 +1,14 @@
+<div class="container">
+  <%= render 'left-side' %>
+  <div class="threads-selection">
+    <% @threaders.each do |thread| %>
+      <%= render 'users/user_info', model: thread%>
+    <div class="post-content">
+      <%= link_to "/threaders/#{thread.hash_id}" do %>
+        <p><%= thread.user.name %>さんが「<%= thread.title %>」というスレッドを立てました。</p>
+      <% end %>
+    </div>
+    <hr color="black">
+    <% end %>
+  </div>
+</div>

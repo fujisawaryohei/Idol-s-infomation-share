@@ -1,12 +1,6 @@
 <div class="post-form">
-  <div class="post-error-messages">
-    <% if @post.errors.any? %>
-      <% @post.errors.full_messages do |msg| %>
-        <p><%= msg %></p>
-      <% end %>
-    <% end %>
-  </div>
   <%= form_for(@post, remote:true) do |f| %>
+    <%= render 'layouts/error_messages', model: f.object %>
     <div id="upload-movement">
       <div id="temp-elem" style="margin:5px;"></div>
     </div>
