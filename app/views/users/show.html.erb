@@ -1,6 +1,6 @@
 <div class="user-page">
   <% if @user.image_file %>
-    <%= image_tag("users/#{@user.hash_id}.jpg", class:'user-icon')%>
+    <%= image_tag("users/#{@user.hash_id}.jpg", class: 'user-icon')%>
   <% else %>
     <img class="user-icon" src="http://www.teppan.co/images/success/default.png">
   <% end %>

@@ -33,6 +33,8 @@ gem 'mini_magick'
 
 gem 'rb-readline'
 
+gem 'ransack'
+
 # gem 'redis', '~> 4.0'
 
 # gem 'bcrypt', '~> 3.1.7'

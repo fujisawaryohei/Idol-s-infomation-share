@@ -11,7 +11,9 @@
       </ul>
     </div>
     <div class="header-right">
-      <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="ユーザー検索">
+      <%= search_form_for @user_search, url: "/users/result"  do |f|%>
+        <%= f.search_field :name, class: "form-control", placeholder: "ユーザー検索"%>
+      <% end %>
       <% if @current_user.image_file %>
         <%= link_to user_path(@current_user.hash_id) do %>
           <%= image_tag("users/#{@current_user.hash_id}.jpg") %>

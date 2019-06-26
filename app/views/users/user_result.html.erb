@@ -1,0 +1,18 @@
+<div class="container">
+  <%= render 'threaders/left-side' %>
+  <div class="threads-selection">
+    <% @user_result.each do |user| %>
+      <div class="post-user-info">
+        <%= link_to "/users/#{user.hash_id}", {style:"color:black; text-decoration:none;"} do %>
+          <% if user.image_file %>
+            <%= image_tag("users/#{user.hash_id}", class:"post-user-image")%>
+          <% else %>
+            <img src="http://www.teppan.co/images/success/default.png" class="post-user-image">
+          <% end %>
+          <span class="post-user-name"><%= user.name %></span>
+        <% end %>
+      </div>
+    <hr color="black">
+    <% end %>
+  </div>
+</div>

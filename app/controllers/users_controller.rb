@@ -43,6 +43,9 @@ class UsersController < ApplicationController
     end
   end
 
+  def user_result
+  end
+
   private
 
   def login_params
