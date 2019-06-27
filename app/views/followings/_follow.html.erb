@@ -1,0 +1,13 @@
+<% if current_user.following?(model)%>
+  <%= link_to "/users/#{model.hash_id}/unfollow", method: :delete, remote: true do %>
+    <div class="unfollow-btn">
+      <span class="unfollow-font">フォローを外す</span>
+    </div>
+  <% end %>
+<% else %>
+  <%= link_to "/users/#{model.hash_id}/follow", method: :post, remote: true do %>
+    <div class="follow-btn">
+      <span class="follow-font">フォローする</span>
+    </div>
+  <% end %>
+<% end %>

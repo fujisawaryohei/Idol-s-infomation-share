@@ -5,10 +5,10 @@ class UsersController < ApplicationController
     @user = User.new(login_params)
     @user.hash_id = ramdom_token
     if @user.save
-      log_in user
-      remember user
+      log_in @user
+      remember @user
       flash[:success] = "登録が完了しました。"
-      redirect_to "/users/#{user.hash_id}"
+      redirect_to "/users/#{@user.hash_id}"
     else
       render 'users/new'
     end

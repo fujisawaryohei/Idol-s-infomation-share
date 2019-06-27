@@ -1,0 +1,33 @@
+// Place all the styles related to the followings controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+.follow-btn {
+  background-color:white;
+  border-radius:5%;
+  width:130px;
+  height:40px;
+  border: solid 1px #88CE6E;
+}
+
+.unfollow-btn {
+  background-color:#88CE6E;
+  border-radius:5%;
+  width:130px;
+  height:40px;
+  border: solid 1px #88CE6E;
+}
+
+.follow-font {
+  text-align:center;
+  text-align:center;
+  display:block;
+  margin-top:6px;
+  color: #88CE6E;
+}
+
+.unfollow-font {
+  text-align:center;
+  display:block;
+  margin-top:6px;
+  color: white;
+}

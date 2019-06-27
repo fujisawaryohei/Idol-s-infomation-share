@@ -19,4 +19,7 @@ Rails.application.routes.draw do
 
   post '/threaders/:id/threadcomment', to: 'threadcomments#create'
   delete '/threaders/:id/threadcomment/:hash_id', to: 'threadcomments#destroy'
+
+  post '/users/:hash_id/follow', to: 'followings#create'
+  delete '/users/:hash_id/unfollow', to: 'followings#destroy'
 end

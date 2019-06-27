@@ -11,6 +11,11 @@
           <% end %>
           <span class="post-user-name"><%= user.name %></span>
         <% end %>
+        <% if current_user.id != user.id %>
+          <div id="follow-<%= user.id %>" style="margin-right:10px;">
+            <%= render 'followings/follow', model: user %>
+          </div>
+        <% end %>
       </div>
     <hr color="black">
     <% end %>

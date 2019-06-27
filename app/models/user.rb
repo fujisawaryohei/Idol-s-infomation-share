@@ -9,13 +9,17 @@ class User < ApplicationRecord
 
   validates :hash_id, presence: true
 
-  has_many :posts
+  has_many :posts, dependent: :destroy
 
-  has_many :threadComments
+  has_many :threaders, dependent: :destroy
 
-  has_many :followings, foreign_key: "following_id", class_name: "Following", dependent: :destroy
+  has_many :threadComments, dependent: :destroy
 
-  has_many :followers, foreign_key: "follower_id", class_name: "Following", dependent: :destroy
+  has_many :active_relationships, foreign_key: "follower_id", class_name: "Following", dependent: :destroy
+  has_many :followings, through: :active_relationships, source: :following
+
+  has_many :passive_relationships, foreign_key: "following_id", class_name: "Following", dependent: :destroy
+  has_many :followers, through: :passive_relationships, source: :follower
 
   has_secure_password
 
@@ -39,5 +43,17 @@ class User < ApplicationRecord
 
   def forget
     update_attribute(:remember_digest,nil)
+  end
+
+  def following?(other_user)
+    !active_relationships.find_by(following_id: other_user.id).nil? ? true : false
+  end
+
+  def follow(other_user)
+    active_relationships.create(following_id: other_user.id)
+  end
+
+  def unfollow(other_user)
+    active_relationships.find_by(following_id: other_user.id).destroy
   end
 end

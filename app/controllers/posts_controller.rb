@@ -1,7 +1,9 @@
 class PostsController < ApplicationController
 
   def index
-    @post = current_user.posts
+    users = current_user.followings.to_a.insert(0,current_user)
+    post_sort = users.map{|user| Post.find_by(user_id: user.id)}.select{|post| post != nil}.map{|post| post.id}.sort{|a, b| b <=> a }
+    @posts = post_sort.map{|id| Post.find_by(id: id)}
   end
 
   def new

@@ -23,7 +23,7 @@ class ThreadcommentsController < ApplicationController
   def destroy
     @thread = Threader.find_by(hash_id: params[:id])
     @threadcomment = ThreadComment.find_by(hash_id: params[:hash_id])
-    @threadcomment.delete
+    @threadcomment.destroy
     redirect_to "/threaders/#{@thread.hash_id}"
   end
 end
