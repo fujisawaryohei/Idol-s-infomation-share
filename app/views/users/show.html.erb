@@ -9,6 +9,7 @@
     <div class="user-profile">
       <%= @user.profile %>
     </div>
+    <%= render 'users/follow_stats' %>
     <% if @user == current_user %>
       <%= link_to 'User設定をする', "/users/#{@user.hash_id}/edit", class:"btn btn-info" %>
     <% end %>

@@ -11,6 +11,14 @@ class FollowingsController < ApplicationController
     end
   end
 
+  def followings
+    @users = current_user.followings
+  end
+
+  def followers
+    @users = current_user.followers
+  end
+
   def destroy
     @user = User.find_by(hash_id: params[:hash_id])
     current_user.unfollow(@user)

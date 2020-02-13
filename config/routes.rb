@@ -20,6 +20,11 @@ Rails.application.routes.draw do
   post '/threaders/:id/threadcomment', to: 'threadcomments#create'
   delete '/threaders/:id/threadcomment/:hash_id', to: 'threadcomments#destroy'
 
+  get '/users/:hash_id/followings', to: 'followings#show_followings'
+  get '/users/:hash_id/followers', to: 'followings#show_followers'
   post '/users/:hash_id/follow', to: 'followings#create'
   delete '/users/:hash_id/unfollow', to: 'followings#destroy'
+
+  post '/post/:hash_id/likes', to: 'likes#create'
+  delete '/post/:hash_id/likes', to: 'likes#destroy'
 end

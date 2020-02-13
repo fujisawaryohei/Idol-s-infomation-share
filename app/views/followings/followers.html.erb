@@ -1,0 +1,11 @@
+<div class="container">
+  <%= render 'left-side' %>
+  <div class="threads-selection">
+    <% @users.each do |user| %>
+      <%= render 'users/user_info', model: user %>
+    <div class="post-content">
+    </div>
+    <hr color="black">
+    <% end %>
+  </div>
+</div>

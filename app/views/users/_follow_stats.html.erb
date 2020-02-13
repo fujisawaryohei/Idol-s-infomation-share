@@ -1,0 +1,8 @@
+<div class="follow_stats">
+  <%= link_to "/users/#{current_user.hash_id}/followings" do %>
+    <span style="margin-left:10px;">Followings <%= current_user.followings.count %></span>
+  <% end %>
+  <%= link_to "/users/#{current_user.hash_id}/followers" do %>
+    <span style="margin-left:10px;">Followers <%= current_user.followers.count %></span>
+  <% end %>
+</div>
